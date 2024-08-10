@@ -1,5 +1,5 @@
-# SPARC Flow (sparc-assemble)
-A Python tool to describe and run tools and workflows for processing SPARC datasets in accordance with FAIR principles.
+# SPARC Assemble (sparc-assemble)
+short description here
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
