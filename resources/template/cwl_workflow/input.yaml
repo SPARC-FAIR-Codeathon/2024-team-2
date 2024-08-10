@@ -1,0 +1,6 @@
+input_folder:
+  class: Directory
+  path: path_to_input_folder
+output_folder:
+  class: Directory
+  path: path_to_output_folder
