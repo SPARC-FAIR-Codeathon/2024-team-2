@@ -13,7 +13,8 @@ import argparse
 
 def extract_dependent_variable_sds(x):
     """
-    This function displays plots of key results from the study
+    This function extracts the dependent variable measurements from a SDS dataset at the
+    specified independent variable measurements from tool_extract_indep_var_sds.py.
 
     :param x: independent variable of the SDS dataset extracted from the previous tool in workflow
     :type x: n x 1 array
@@ -26,8 +27,8 @@ def extract_dependent_variable_sds(x):
     if get_electrodes:
         electrodes = ["Cuff 1", "Cuff 3", "LIFE 2"]
 
-    # Dependent variable quantity of dataset is membrane voltage obtained from different
-    # electrodes. This information was extracted from the dataset.
+    #   Dependent variable quantity of dataset is membrane voltage obtained from different electrodes
+    #   at the specified time measurements (x). This information was extracted from the dataset.
     y = [[-1.194679728397433872e-05,
           -1.980733829726684289e-05,
           -1.077133905927803561e-03,
