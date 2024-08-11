@@ -3,12 +3,12 @@
   "comment": "textual description of the operation/tool",
   "Input": [{
     "Input 1 name": {
-      "comment": "textual description of the input",
+      "comment": "textual description of the input"
     }
   }],
   "Output": [{
     "output 1 name": {
-      "comment": "textual description of the output",
+      "comment": "textual description of the output"
     }
   }],
   "cwl": "absolute_path_to_the_cwl_file.cwl"
