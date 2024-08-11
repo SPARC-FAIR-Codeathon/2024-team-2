@@ -28,7 +28,7 @@ class Assembler():
                            ind.is_a[0] == ontology.data_0006 and ontology.is_output_of in ind.get_properties()]
 
         # Display request options and prompt for request
-        selected_request = prompt_input_request(request_options)
+        selected_request = prompt_input_request_nlp(request_options)
 
         # Retrieve methods that answer the request and store all possible workflows in a global dict
         self._handle_request_choice(request_options[selected_request], ontology)

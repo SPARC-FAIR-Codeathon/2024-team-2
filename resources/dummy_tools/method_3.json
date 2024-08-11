@@ -1,0 +1,18 @@
+{
+  "Operation": "method_3",
+  "comment": "From 2 inputs to PV Loop",
+  "Input": [
+    {"3D Mesh": {
+      "type": ""
+    }},
+    {"Myocardial Stiffness": {
+      "type": ""
+    }}
+  ],
+  "Output": [{
+    "PV loop": {
+      "type": ""
+    }
+  }],
+  "cwl": "Tools\\method_3.cwl"
+}
