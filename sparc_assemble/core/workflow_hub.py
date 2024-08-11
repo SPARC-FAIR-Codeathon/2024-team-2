@@ -9,7 +9,7 @@ class WorkflowHub:
         """
         Initialize the WorkflowHub with the provided configuration.
 
-        :param config: Dictionary containing configuration parameters.
+        :param config: Dictionary containing zip_url, local_zip_path, and output_directory.
         """
         self._config = config
 
@@ -78,7 +78,6 @@ class WorkflowHub:
         return zip_filename
 
 
-# Example usage
 if __name__ == "__main__":
     config = {
             'zip_url': 'https://workflowhub.eu/workflows/776/ro_crate?version=1',
@@ -86,7 +85,6 @@ if __name__ == "__main__":
             'output_directory': '../../workflowhub-cwl/unzip/'
             }
     workflow_hub = WorkflowHub(config)
-
 
     # generate ZIP filename
     zip_filename = workflow_hub.generate_zip_filename(config.get('zip_url'))
