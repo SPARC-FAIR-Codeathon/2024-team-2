@@ -1,0 +1,18 @@
+{
+  "Operation": "method_4",
+  "comment": "From 2 inputs to E/A",
+  "Input": [
+    {"E wave": {
+      "type": ""
+    }},
+    {"A wave": {
+      "type": ""
+    }}
+  ],
+  "Output": [{
+    "E/A ratio": {
+      "type": ""
+    }
+  }],
+  "cwl": "Tools\\method_4.cwl"
+}
