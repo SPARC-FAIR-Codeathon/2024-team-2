@@ -17,4 +17,5 @@ if __name__ == '__main__':
 
     kg = KG(ontology_file=args.save_kg_path)
     kg.add_tools(tool_library=args.tool_library)
+    kg.list_added_tools()
     kg.save(save_path="args.tool_library")
