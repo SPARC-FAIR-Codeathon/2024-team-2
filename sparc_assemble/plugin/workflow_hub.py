@@ -5,13 +5,13 @@ from urllib.parse import urlparse, parse_qs
 
 
 class WorkflowHub:
-    def __init__(self, config: dict):
+    def __init__(self, zip_url):
         """
         Initialize the WorkflowHub with the provided configuration.
 
         :param config: Dictionary containing zip_url, local_zip_path, and output_directory.
         """
-        self._config = config
+        self._zip_url = zip_url
 
     def download_zip_file(self, url: str, local_filename: str) -> None:
         """
@@ -22,11 +22,6 @@ class WorkflowHub:
         """
 
         try:
-            # Ensure the directory exists
-            directory = os.path.dirname(local_filename)
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-
             # Download the file
             response = requests.get(url, stream=True)
             if response.status_code == 200:
@@ -79,20 +74,16 @@ class WorkflowHub:
 
 
 if __name__ == "__main__":
-    config = {
-            'zip_url': 'https://workflowhub.eu/workflows/776/ro_crate?version=1',
-            'local_zip_path': '../../workflowhub-cwl/zip/',
-            'output_directory': '../../workflowhub-cwl/unzip/'
-            }
-    workflow_hub = WorkflowHub(config)
+    zip_url = "https://workflowhub.eu/workflows/776/ro_crate?version=1"
+    workflow_hub = WorkflowHub(zip_url)
 
     # generate ZIP filename
-    zip_filename = workflow_hub.generate_zip_filename(config.get('zip_url'))
-    local_zip_path = os.path.join(config.get('local_zip_path'), zip_filename)
+    zip_filename = workflow_hub.generate_zip_filename(zip_url)
+    local_zip_path = zip_filename+'.zip'
 
     # Download the ZIP file
-    workflow_hub.download_zip_file(config.get('zip_url'), local_zip_path)
+    workflow_hub.download_zip_file(zip_url, local_zip_path)
 
     # Unzip the entire contents of the ZIP archive
-    output_directory = os.path.join(config.get('output_directory'), zip_filename)
+    output_directory = zip_filename
     workflow_hub.unzip_folder(local_zip_path, output_directory)
