@@ -225,5 +225,5 @@ def save_workflow(ontology: Ontology, workflow: list[list[str]]) -> tuple[dict, 
         add_workflow_outputs(wf, out_ref)
         # Save workflow to a cwl file with name provided by user
         workflow_name = str(input('Workflow name: '))  # Get workflow name
-        wf.save(f'resources/workflows/{workflow_name}.cwl', mode='abs')  # TODO: remove hard coded path
+        wf.save(f'workflows/{workflow_name}.cwl', mode='abs')  # TODO: remove hard coded path
     return final_inputs, workflow_name

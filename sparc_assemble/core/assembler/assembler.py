@@ -10,9 +10,8 @@ class Assembler():
     From a knowledge graph, prompt user for request, retrieve possible workflows, prompt user for workflow choice and
     create the corresponding workflow (cwl) and inputs (yaml) files.
     """
-    def __init__(self, KG_path: str, hcp: bool):
+    def __init__(self, KG_path: str):
         self.KG_path = KG_path
-        self.hpc = hcp
         self.workflow_options_dict = None
         self.workflow = None
 
