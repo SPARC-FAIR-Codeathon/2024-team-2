@@ -1,0 +1,24 @@
+{
+  "Operation": "method_1",
+  "comment": "From 4 inputs to GPLS",
+  "Input": [
+    {"Ejection Fraction": {
+      "type": ""
+    }},
+    {"Left ventricular mass": {
+      "type": ""
+    }},
+    {"PV loop": {
+      "type": ""
+    }},
+    {"E/A ratio": {
+      "type": ""
+    }}
+  ],
+  "Output": [{
+    "GPLS": {
+      "type": ""
+    }
+  }],
+  "cwl": "Tools\\method_1.cwl"
+}

@@ -1,30 +1,78 @@
 import os
 import copy
 
+from thefuzz import process
 from ruamel import yaml as YAML
 from sparc_assemble.core.assembler.workflow import WorkflowGenerator
 from owlready2.namespace import Ontology
 from sparc_assemble.core.assembler.sparql_queries import find_method_cwl
 from pathlib import Path
+from sentence_transformers import SentenceTransformer, util
+
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')  # A lightweight model, more available options exist
+
+def fuzzy_match(user_input, possible_requests, threshold=80):
+    # Fuzzy matching to find the closest match
+    match, score = process.extractOne(user_input, possible_requests)
+    if score >= threshold:
+        return match
+    return None
+
+def sbert_match(user_input, possible_requests):
+
+    query_embedding = model.encode(user_input)
+    request_embeddings = model.encode(possible_requests)
+
+    similarities = [(req, util.cos_sim([query_embedding], [emb])[0][0]) for req, emb in
+                    zip(possible_requests, request_embeddings)]
+    # similarities = [(req, doc.similarity(nlp(req))) for req in possible_requests]
+    best_match = max(similarities, key=lambda x: x[1])
+
+    if best_match[1] > 0.6:  # Adjust the threshold as needed
+        return best_match[0]
+    return None
+
+def prompt_input_request_nlp(options: list[str]) -> str:
+    """
+    Prompt the user for their parameter of interest and match it to existing options if possible.:
+    Args:
+        options (list[str]): list of individuals that can be requested
+    Returns:
+         output (int): request
+    """
+    while True:
+        # Prompt the user for their request
+        request = input(f"\nPlease specify which parameter you would like to derive: ")
+
+        match = fuzzy_match(request, options)
+
+        if match:
+            choice = input(f"Did you mean '{match}'? (yes/no): ")
+            if choice.casefold() in ['yes', 'y']:
+                return options.index(match)
+            else:
+                match = sbert_match(request, options)
+                if match:
+                    choice = input(f"Did you mean '{match}'? (yes/no): ")
+                    if choice.casefold() in ['yes', 'y']:
+                        return options.index(match)
+                else:
+                    print("No exact match found. Here are the possible requests:")
+                    for request in options:
+                        print(f"- {request}")
+        else:
+            match = sbert_match(request, options)
+            if match:
+                choice = input(f"Did you mean '{match}'? (yes/no): ")
+                if choice.casefold() in ['yes', 'y']:
+                    return options.index(match)
+            else:
+                print("No exact match found. Here are the possible requests:")
+                for request in options:
+                    print(f"- {request}")
 
 
 def prompt_input_request(options: list[str]) -> str:
-    # TODO: type request and search with NLP, for now: list of outputs that can be computed
-    # """
-    # Prompt user to type request. Check if request is implemented (i.e. present in the options list (temporary):
-    # insensitive to upper and lower case only) and return request.
-    # Args:
-    #     options (list[str]): list of implemented options
-    # Returns:
-    #     output (str): request
-    # """
-    # while True:
-    #     output = input("Type your request: ")
-    #     if output.casefold() in options:
-    #         return output
-    #     else:
-    #         print(f"Option '{output}' is not implemented at the moment. Options: {','.join(options)} ")
-
     """
     Display the possible options to the user with the following format:
     1) Individual 1
