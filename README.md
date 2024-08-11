@@ -1,5 +1,5 @@
 # SPARC Assemble (sparc-assemble)
-A Python tool to find and automatically assemble tools and workflows to process SPARC datasets in accordance with FAIR principles
+A Python tool to find and automatically assemble tools and workflows to process SPARC datasets in accordance with FAIR principles.
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -61,11 +61,10 @@ There is **currently no option for users to**:
   - helping identify new data that could be collected to fill in gaps in our knowledge
 - **easily run such workflows locally or from cloud computing platforms such as oSPARC**
 - **easily reproduce workflow results**
-- 
+
 ## Our solution - sparc-assemble
 To address this problem, we have **developed a Python module called the SPARC Assemble (sparc-assemble)** that can be used to find and automatically assemble workflows and tools to process SPARC datasets in accordance with FAIR principles:
 - Provides an easy-to-use python-based application programming interface (API) to enable searching of available **tools** and **workflows**
-
 
 **If you find sparc-assemble useful, please add a GitHub Star to support developments!**
 
@@ -200,7 +199,7 @@ Mathilde Verlyck, Jiali Xu, Max Dang Vu, Thiranja Prasad Babarenda Gamage, Chinc
 ```
 
 ## FAIR practices
-We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](https://docs.google.com/document/d/1az_LXPivQvaofTsiMktJaWpyy2W_xKGX/edit).
+We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](INSERT GOOGLE DOC).
 
 ## License
 sparc-assemble is fully open source and distributed under the very permissive Apache License 2.0. See [LICENSE](https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/LICENSE) for more information.
