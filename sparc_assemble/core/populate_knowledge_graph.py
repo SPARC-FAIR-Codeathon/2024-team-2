@@ -41,9 +41,9 @@ def main(args):
     ontology = owl.get_ontology(args.ontology).load()
 
     # Retrieve json files with tool description
-    tools_description = [os.path.join(args.tool_library, f) for f in os.listdir(args.tool_library) if f.endswith('.json')]
+    tools_descriptions = [os.path.join(args.tool_library, f) for f in os.listdir(args.tool_library) if f.endswith('.json')]
 
-    for description in tools_description:
+    for description in tools_descriptions:
         # Retrieve individuals already in KG
         individuals = list(ontology.individuals())
         individual_names = [str(indiv_onto).removeprefix(args.ontology[:-3]) for indiv_onto in individuals]
