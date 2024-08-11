@@ -12,6 +12,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    kg = KG(ontology=args.ontology, tool_library=args.tool_library)
-    kg.create(save_path=args.save_kg_path)
+    kg = KG(ontology_file=args.ontology)
+    kg.save(save_path=args.save_kg_path)
 
+    kg = KG(ontology_file=args.save_kg_path)
+    kg.add_tools(tool_library=args.tool_library)
+    kg.save(save_path="args.tool_library")
