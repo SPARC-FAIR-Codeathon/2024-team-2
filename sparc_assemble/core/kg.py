@@ -4,7 +4,8 @@ import json
 
 from owlready2.namespace import Ontology
 from owlready2 import Thing as Individual
-
+from sparc_assemble.core.assembler.sparql_queries import find_all_tools
+from sparc_assemble.core.assembler.assemble_utils import post_process_sparql_results
 
 class KG:
 
@@ -80,6 +81,12 @@ class KG:
                 # method.comment = data['comment'] Maybe for later for NLP
                 method.label = method_name
                 method.isDefinedBy = data['cwl']
+
+    def list_tools(self):
+        query_results = find_all_tools(self._ontology)
+        query_results = post_process_sparql_results(query_results)
+        for index, tool in enumerate(query_results, start=1):
+            print(f"\t {index}- {','.join(tool[1])} -> {tool[0]} -> {', '.join(tool[2])}")
 
     def save(self, save_path):
         self._ontology.save(file=save_path)

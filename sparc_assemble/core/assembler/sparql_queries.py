@@ -67,3 +67,24 @@ def find_method_cwl(ontology: Ontology, method: str) -> list[list[str]]:
         {edam:%s rdfs:isDefinedBy ?cwl .}
         """ % (ontology.base_iri, method)
     return list(owl.default_world.sparql(sparql_query))
+
+
+def find_all_tools(ontology: Ontology) -> list[list[str]]:
+    """
+    Query ontology to find all methods. Return methods with their inputs and outputs grouped.
+    Args:
+        ontology: an owl ontology
+    Returns:
+        List of ['method', 'input1,input2,...', 'output,...']
+    """
+    sparql_query = """PREFIX edam: <%s>
+        SELECT ?label_operation (GROUP_CONCAT(?label_input; separator=", ") as ?inputs) (GROUP_CONCAT(?label_output; separator=", ") as ?outputs)
+        {?operation rdf:type edam:operation_0004 .
+        ?operation rdfs:label ?label_operation .
+        ?operation edam:has_input ?input .
+        ?input rdfs:label ?label_input .
+        ?operation edam:has_output ?output .
+        ?output rdfs:label ?label_output} 
+        GROUP BY ?label_operation
+        """ % ontology.base_iri
+    return list(owl.default_world.sparql(sparql_query))
