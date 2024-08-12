@@ -49,24 +49,24 @@ The NIH Common Fund program on **[Stimulating Peripheral Activity to Relieve Con
 
 **The [SPARC Portal](http://sparc.science/) provides a single user-facing online interface to resources** that can be shared, cited, visualized, computed, and used for virtual experimentation. A **key offering** of the portal is the **collection of well-curated datasets in a standardised format, including anatomical and computational models** that are being generated both SPARC-funded researchers and the international scientific community. These datasets can be found under the "[Find Data](https://sparc.science/data?type=dataset)" section of the SPARC Portal. Information regarding [how to navigate a SPARC dataset](https://docs.sparc.science/docs/navigating-a-sparc-dataset) and [how a dataset is formatted](https://docs.sparc.science/docs/overview-of-sparc-dataset-format) can be found on the SPARC Portal.
 
-**The scientific community is developing workflows that apply models and tools in a series of steps to process and understand the original data and generate new results, outcomes, and knowledge** (e.g. segmentation of images, or personalising and running computational physiology models).
+**The scientific community is developing new tools and models** to process and understand measurements in these datasets to generate new results, outcomes, and knowledge. These tools and models are often applied in a series of steps to create workflows whose outputs provide quantities of interest. For example, a user may be creating a workflow that inputs medical images of the brain (measurement) and segments brain tissue from these images (tool) that can output brain volume (quantity of interest). Another user maybe interest in a workflow that inputs electrode measurements from the surface of the heart to personalise a computational model of cardiac electrophysiology to quantify activation patterns. These workflows may require multiple intermediate tools and models to generate the final output of interest. 
 
-Significant effort has been made globally to make 
+In addition to Significant effort has been made globally to make 
 
 ## The problem
+Despite users having an general idea of the quantities of interest in their investigations (e.g. outputs of specific models or tools they are developing), they typically need to assemble workflows manually, often guessing what inputs and intermediate measurements, models, and tools may be needed.
 There is **currently no option for users to**:
-- **easily find and access existing tools and workflows developed by the SPARC community for processing SPARC data** 
-- **easily find and access external tools that could be used for processing SPARC data**
-- **easily reuse these models and tools to assemble new workflows** for:
-  - processing existing SPARC data
-  - helping identify new data that could be collected to fill in gaps in our knowledge
-- **easily identify which SPARC datasets contain the inputs required for 
-- **easily run such workflows locally or from cloud computing platforms such as oSPARC**
-- **easily reproduce workflow results**
+- **easily find and access existing models and tools**:
+  - developed by the SPARC community for processing SPARC data 
+  - developed externally that could be used for processing SPARC data
+- **easily assemble new workflows that reuse existing models and tools to evaluate quantities of interest**
+- **easily identify which measurements (e.g. SPARC datasets) already contain the necessary inputs for these new workflows**
+- **easily identify which measurements, tools, and/or models may be missing** to support effcient advancement of research efforts 
 
 ## Vision
 - Provide capability to automatically assemble workflows by integrating existing measurements models, tools of interest X of interest
-- Link with Language Models to support 
+- Link with Language Models to support
+- Run these newly created workflows locally or in existing platforms such as oSPARC. 
 - These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
 
 ## Benefits
@@ -74,6 +74,7 @@ There is **currently no option for users to**:
 - Maximise finability and impact of existing SPARC resoures
 - Support priorite new investigations for gathering new knowledge (e.g. collecting new data or developing new models or tools)
 - Support efforts for FAIR 
+- help identify which measurements  models, tools  avenues for research to fill in gaps in our knowledge and capabilities
 
 ## Our solution - sparc-assemble
 To address this problem and support the vision, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles with the following features: 
