@@ -32,7 +32,7 @@ def read_requirements(path):
 
 setup(
     name="sparc_assemble",
-    version="0.1.1",
+    version="0.1.2",
     description='A Python tool to find and automatically assemble tools and workflows to process SPARC datasets in accordance with FAIR principles.',
     long_description=(Path(__file__).parent / "README.md").read_text(),
     long_description_content_type="text/markdown",

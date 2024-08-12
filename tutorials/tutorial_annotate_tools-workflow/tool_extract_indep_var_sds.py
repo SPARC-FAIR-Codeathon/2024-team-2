@@ -1,5 +1,5 @@
 """
-Created on 11/08/2024 (NZST time)
+Created on 11/08/2024 (NZT time)
 
 This tool obtains a SDS dataset via its ID and obtains the
 independent variable measurements from the dataset.
@@ -15,15 +15,18 @@ import numpy as np
 from sparc_me import Dataset_Api
 
 
-def extract_independent_variable_sds(datasetId, versionId):
+def extract_independent_variable_sds(datasetId, versionId, outputFile):
     """
-    This function extracts an array of measurements of the independent variable quantity
-    of a SDS dataset with a known Pensieve dataset ID.
+    This function extracts an array of measurements of the independent
+    variable quantity of a SDS dataset with a known Pensieve dataset ID,
+    and saves the array to a .txt file.
 
     :param datasetId: SPARC dataset ID
     :type datasetId: float
     :param versionId: SPARC dataset version ID
     :type versionId: float
+    :param outputFile: Output filename for .txt file
+    :type outputFile: str
     """
 
     # Get dataset metadata from SPARC Portal
@@ -87,13 +90,10 @@ def extract_independent_variable_sds(datasetId, versionId):
          3.850239999999999913e-02,
          3.932159999999999822e-02]
 
-    #   Create output folder if not created
-    output_path = "outputs"
-    os.makedirs(output_path, exist_ok=True)
-
     #   Save independent variable measurement to .txt files
-    np.savetxt(os.path.join(output_path, "time.txt"),
-               np.array(x), delimiter=',')
+    parent_dir = os.path.dirname(outputFile)
+    os.makedirs(parent_dir, exist_ok=True)
+    np.savetxt(outputFile, np.array(x), delimiter=',')
 
 
 def main():
@@ -102,11 +102,13 @@ def main():
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("--datasetId", required=True, help="")
     parser.add_argument("--versionId", required=True, help="")
+    parser.add_argument("--outputFile", required=True, help="")
     args = parser.parse_args()
 
     #   Extract time measurements from this SDS dataset
     #   (https://sparc.science/datasets/262?type=dataset)
-    extract_independent_variable_sds(datasetId=args.datasetId, versionId=args.versionId)
+    extract_independent_variable_sds(
+        datasetId=args.datasetId, versionId=args.versionId, outputFile=args.outputFile)
 
 
 if __name__ == "__main__":

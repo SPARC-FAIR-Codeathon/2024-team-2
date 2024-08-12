@@ -1,3 +1,6 @@
-x_file:
+xFile:
   class: File
-  path: 'outputs/time.txt'
+  path: './outputs/time.txt'
+outputFile:
+  class: File
+  path: './outputs/voltage.txt'
