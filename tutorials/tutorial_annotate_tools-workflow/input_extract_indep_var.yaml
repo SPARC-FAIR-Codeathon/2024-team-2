@@ -1,2 +1,5 @@
 datasetId: 262
 versionId: 1.1
+outputFile:
+  class: File
+  path: 'outputs/time.txt'
