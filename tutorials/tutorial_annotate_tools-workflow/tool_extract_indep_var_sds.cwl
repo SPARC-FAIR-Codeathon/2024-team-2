@@ -12,7 +12,16 @@ inputs:
     inputBinding:
       position: 2
       prefix: --versionId
-outputs: []
+  outputFile:
+    type: File
+    inputBinding:
+      position: 3
+      prefix: --outputFile
+outputs:
+  xFile:
+      type: File
+      outputBinding:
+        glob: $(inputs.outputFile)
 
 requirements:
   InitialWorkDirRequirement:  # Ensure Python script available in current working directory
@@ -22,6 +31,7 @@ requirements:
        contents: |
          datasetId=262
          versionId=1.1
+         outputFile='.outputs/time.txt'
 
 # run the tool
 #cwltool tool_extract_indep_var_sds.cwl input_extract_indep_var.yaml
