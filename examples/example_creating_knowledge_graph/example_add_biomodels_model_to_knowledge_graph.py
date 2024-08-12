@@ -8,10 +8,17 @@ if __name__ == '__main__':
     parser.add_argument("--save_kg_path", type=str, help='Path to save KG', default=r"./kg_biomodels_model.owl")
     args = parser.parse_args()
 
-    inputs = []
-    outputs = []
-    model_name = ""
-    model_path = ""
+    import biomodels
+    metadata = biomodels.get_metadata("BIOMD0000000012")
+    metadata_file = biomodels.get_file("BIOMD0000000012_url.xml", model_id="BIOMD12")
+    metadata_file_cache_path = str(metadata_file.parent)
+
+    import simplesbml
+    model_path = metadata_file_cache_path + '/BIOMD0000000012_url.xml'
+    model = simplesbml.loadSBMLFile(model_path)
+    model_name = model.model.name
+    inputs = list(model.model.species.all_elements)
+    outputs = list(model.model.reactions.all_elements)
 
     # initialising KG from default ontology "EDAM"
     kg = KG()
