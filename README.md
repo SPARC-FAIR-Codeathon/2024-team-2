@@ -50,7 +50,16 @@ The NIH Common Fund program on **[Stimulating Peripheral Activity to Relieve Con
 
 **The scientific community is developing new tools and models** to process and understand measurements in these datasets to generate new results, outcomes, and knowledge. These tools and models are often applied in a series of steps to create workflows whose outputs provide quantities of interest. For example, a user may be creating a workflow that inputs medical images of the brain (measurement) and segments brain tissue from these images (tool) that can output brain volume (quantity of interest). Another user maybe interest in a workflow that inputs electrode measurements from the surface of the heart to personalise a computational model of cardiac electrophysiology to quantify activation patterns. These workflows may require multiple intermediate tools and models to generate the final output of interest. 
 
-In addition to significant effort has been made globally to make 
+During the past decades, tens of thousands of models and tools have been developed globally from different initiatives and stored in multiple online repositories, for example:
+- Models
+  - [Physiome Model Repository](https://models.physiomeproject.org/welcome) (>6,000 models)
+  - [Biomodels](https://www.ebi.ac.uk/biomodels/) (>3,000 models)
+- Tools
+  - [biotools](https://bio.tools/) (>30,000 tools)
+  - [OpenEBench](https://openebench.bsc.es/dashboard/) (>40,000 tools)
+  - [BioContainers](https://biocontainers.pro/) (>100,000 tools)
+  - [Galaxy](https://usegalaxy.eu/) (>9,000 tools)
+  - [WorkflowHub](https://workflowhub.eu/) (>700 tools)
 
 ## The problem
 Despite users having a general idea of the quantities of interest in their investigations (e.g. outputs of specific models or tools they are developing), they typically need to assemble workflows manually, often guessing what inputs and intermediate measurements, models, and tools may be needed.
@@ -64,21 +73,20 @@ There is **currently no option for users to**:
 - **easily identify which measurements, tools, and/or models may be missing** to support efficient advancement of research efforts 
 
 ## Vision and benefits
-Our vision is to provide a tool that can address the above problem by:
-- providng a knowledgebase that:
+Our vision is to:
+- **providing a knowledgebase** that:
   - describes existing measurements, models, and tools developed by the SPARC and wider communities
   - provides a map of all the inputs and outputs of the available models and tools
-- leverage the knowledgebase to automatically assemble workflow descriptions that can be used to evaluate quantities of interest
-- run the assembled workflow(s) or help identify missing components that are needed to run the assembled workflow
-- store assembled workfow descriptions in a FAIR manner such that they can potentially be e.g. [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) 
+- **leverage the knowledgebase to automatically assemble workflow descriptions to evaluate quantities of interest**
+- **run the assembled workflow(s)** or **help identify missing components** that are needed to run the assembled workflow
+- **store assembled workfow descriptions in a FAIR manner** such that they can potentially be e.g. [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) 
 
 Providing these capabilites would: 
-- significantly improve search functionality, especially if it is integrated with shared infrastructure such as the SPARC portal
+- significantly improve search functionality, especially if it is integrated with shared infrastructure such as the SPARC portal. This would allow users to:
+  - search for the quantities that they are interested in by leveraging knowledge of existing tools and models that may already provide those quantities.
 - maximise finability, reusabilty, and therefore, the impact of existing SPARC resoures (providing an pathway for other communities that are building tools and models to make use of SPARC data)
-- support investigations for gathering missing  knowledge (e.g. collecting new data or developing new models or tools)
-- support efforts for FAIR
 - support reuse of assembled workflows by the community for generating scientific advances.
-- help identify which measurements  models, tools  avenues for research to fill in gaps in our knowledge and capabilities
+- help the community identify gaps in our knowledge and capabilites to support and help prioritise future research developments
 
 ## Our solution - sparc-assemble
 To address this problem and support our vision, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles. 
