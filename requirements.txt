@@ -1,6 +1,6 @@
 owlready2
 scriptcwl
 ruamel.yaml
-thefuzz
+thefuzz==0.22.1
 spacy
 torch==2.3.0
