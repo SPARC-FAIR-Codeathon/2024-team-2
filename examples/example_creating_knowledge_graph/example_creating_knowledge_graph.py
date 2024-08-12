@@ -24,6 +24,6 @@ if __name__ == '__main__':
     kg.add_tools(tool_library=args.tool_library)
 
     # listing tools in KG
-    kg.list_tools()
+    kg.list()
 
     kg.save(save_path=args.save_kg_path)

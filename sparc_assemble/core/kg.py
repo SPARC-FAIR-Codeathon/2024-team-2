@@ -111,7 +111,7 @@ class KG:
                 method.label = method_name
                 method.isDefinedBy = data['cwl']
 
-    def list_tools(self):
+    def list(self):
         query_results = find_all_tools(self._ontology)
         query_results = post_process_sparql_results(query_results)
         for index, tool in enumerate(query_results, start=1):
