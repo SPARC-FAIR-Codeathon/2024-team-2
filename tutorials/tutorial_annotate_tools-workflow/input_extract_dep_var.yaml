@@ -1,1 +1,3 @@
-x: np.loadtxt('outputs/time.txt', delimiter=',')
+x_file:
+  class: File
+  path: 'outputs/time.txt'

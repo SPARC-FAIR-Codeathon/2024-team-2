@@ -15,8 +15,6 @@ inputs:
 outputs: []
 
 requirements:
-#  DockerRequirement:
-#    dockerPull: "python:3.10"
   InitialWorkDirRequirement:  # Ensure Python script available in current working directory
     listing:
      - class: File
