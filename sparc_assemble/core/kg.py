@@ -1,6 +1,7 @@
 import owlready2 as owl
 import os
 import json
+import re
 
 from owlready2.namespace import Ontology
 from owlready2 import Thing as Individual
@@ -41,6 +42,34 @@ class KG:
                 tmp_individual.label = list(class_data[i].keys())[0]
             individuals_list.append(tmp_individual)
         return individuals_list
+
+    def _populate_ontology_by_model(self, ontology: Ontology, individual_names: list[str], individuals: list[Individual],
+                           class_data: list[dict]) -> list[Individual]:
+        """
+        Create a list of individuals for a specific key (either input or output) for the tool and add them in the knowledge
+        graph if not existing.
+        Args:
+            ontology (Ontology): an owl ontology
+            individual_names (list[str]): list of individual names existing in the knowledge graph
+            individuals (list[Individual]):  list of individuals existing in the knowledge graph
+            class_data (list[dict]): model description stored in a dict format
+        Returns:
+            individuals_list (list[Individual]): list of individuals for the class specified in class_data
+        """
+        individuals_list = []
+        for i in range(len(class_data)):
+            id = class_data[i].get("id")
+            name = class_data[i].get("name")
+            label = id + '.' + name
+            # If individual already in KG add to list, else create and add to list
+            if label in individual_names:
+                id_indiv = individual_names.index(label)
+                tmp_individual = individuals[id_indiv]
+            else:
+                tmp_individual = ontology.data_0006(label)
+                tmp_individual.label = label
+
+            individuals_list.append(tmp_individual)
 
     def add_tools(self, tool_library=None):
 
@@ -87,6 +116,42 @@ class KG:
         query_results = post_process_sparql_results(query_results)
         for index, tool in enumerate(query_results, start=1):
             print(f"\t {index}- {','.join(tool[1])} -> {tool[0]} -> {', '.join(tool[2])}")
+
+    def add_model(self, model_path=None):
+        # Retrieve individuals already in KG
+        individuals = list(self._ontology.individuals())
+        individual_names = [str(indiv_onto).removeprefix(self._ontology_file[:-3]) for indiv_onto in
+                            individuals]
+
+        # Read description
+        with open(model_path, 'r') as read_description:
+            data = json.load(read_description)
+            keys = list(data.keys())
+            for key in keys:
+                if key == 'input':
+                    # Create list of input individuals
+                    input_individuals = self._populate_ontology(self._ontology, individual_names, individuals,
+                                                                data[key])
+
+                elif key == 'output':
+                    # Create list of output individuals
+                    output_individuals = self._populate_ontology(self._ontology, individual_names, individuals,
+                                                                 data[key].get("data"))
+
+                elif key == 'simulation':
+                    name = data[key]["opencor"]["resource"]
+                    parts = re.split(r'[/\.]', name)
+                    method_name = parts[-2]
+                    method = self._ontology.operation_0004(method_name)
+
+            # Link inputs and outputs to method
+            method.has_input = input_individuals
+            method.has_output = output_individuals
+
+            # Add description, label and cwl file name
+            # method.comment = data['comment'] Maybe for later for NLP
+            method.label = method_name
+            method.isDefinedBy = model_path
 
     def save(self, save_path):
         self._ontology.save(file=save_path)
