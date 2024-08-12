@@ -91,6 +91,8 @@ def extract_independent_variable_sds(datasetId, versionId, outputFile):
          3.932159999999999822e-02]
 
     #   Save independent variable measurement to .txt files
+    parent_dir = os.path.dirname(outputFile)
+    os.makedirs(parent_dir, exist_ok=True)
     np.savetxt(outputFile, np.array(x), delimiter=',')
 
 
