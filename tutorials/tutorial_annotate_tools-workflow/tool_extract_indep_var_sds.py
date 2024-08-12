@@ -17,15 +17,13 @@ from sparc_me import Dataset_Api
 
 def extract_independent_variable_sds(datasetId, versionId):
     """
-    This function extracts the independent variable quantity of a SDS dataset
-    with a known Pensieve dataset ID.
+    This function extracts an array of measurements of the independent variable quantity
+    of a SDS dataset with a known Pensieve dataset ID.
 
     :param datasetId: SPARC dataset ID
     :type datasetId: float
     :param versionId: SPARC dataset version ID
     :type versionId: float
-    :return: x: independent variable quantity from dataset
-    :rtype: n x 1 array
     """
 
     # Get dataset metadata from SPARC Portal
@@ -93,10 +91,9 @@ def extract_independent_variable_sds(datasetId, versionId):
     output_path = "outputs"
     os.makedirs(output_path, exist_ok=True)
 
-    #   Save key data to .txt files
-    np.savetxt(os.path.join(output_path, "time.txt"), np.array(x), delimiter=',')
-
-    return x
+    #   Save independent variable measurement to .txt files
+    np.savetxt(os.path.join(output_path, "time.txt"),
+               np.array(x), delimiter=',')
 
 
 def main():
@@ -109,7 +106,7 @@ def main():
 
     #   Extract time measurements from this SDS dataset
     #   (https://sparc.science/datasets/262?type=dataset)
-    time = extract_independent_variable_sds(datasetId=args.datasetId, versionId=args.versionId)
+    extract_independent_variable_sds(datasetId=args.datasetId, versionId=args.versionId)
 
 
 if __name__ == "__main__":

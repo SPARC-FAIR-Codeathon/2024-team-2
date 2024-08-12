@@ -1,0 +1,3 @@
+x_file:
+  class: File
+  path: 'outputs/time.txt'
