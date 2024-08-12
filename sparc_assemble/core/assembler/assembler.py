@@ -23,7 +23,7 @@ class Assembler():
         # Retrieve ontology
         ontology = owl.get_ontology(self.KG_path).load()
 
-        # Define request options (all data individuals for now) TODO: NLP to retrieve requests
+        # Define request options
         request_options = [ind.name for ind in list(ontology.individuals()) if
                            ind.is_a[0] == ontology.data_0006 and ontology.is_output_of in ind.get_properties()]
 
