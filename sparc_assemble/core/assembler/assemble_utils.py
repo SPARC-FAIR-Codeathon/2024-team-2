@@ -181,35 +181,6 @@ def choose_options(options: list[str], dict_methods: dict[str, dict[str, list[li
     return choice_method, choice_input
 
 
-def provide_and_save_inputs(inputs: dict[str, str], wf_name: str) -> None:
-    """
-    Prompt user for inputs value and store them in a dict.
-    Need to be added: type verification (once added to knowledge graph)
-    Args:
-        inputs (dict[str, str]): dict of inputs (key) and their type (value)
-        wf_name (str): workflow name
-    Returns:
-        None: store inputs in a yaml file
-    """
-    inputs_dict = {}
-    # Loop over input, get value and store it in inputs_dict
-    for input_name, input_type in inputs.items():
-        input_value = input(f'Please provide input value for {input_name}:')
-        # Add input and their value to inputs_dict
-        if input_type in ['Directory', 'File']:  # handle input type Directory and File
-            sub_dict = {'class': input_type, 'path': input_value}
-            inputs_dict[input_name] = sub_dict
-        else:
-            inputs_dict[input_name] = input_value
-    # Store inputs as a yaml file in Jobs folder
-    if not os.path.exists('Jobs'):  # TODO: don't hard code
-        os.makedirs('Jobs')
-    with open(f'Jobs/{wf_name}.yml', 'w') as yaml_file:
-        yaml_instance = YAML(typ='unsafe', pure=True)  # Create a YAML instance
-        yaml_instance.default_flow_style = False
-        yaml_instance.dump(inputs_dict, yaml_file, default_flow_style=False)
-
-
 def post_process_sparql_results(sparql_results: list[list[str]]) -> list[list[str, list[str], list[str]]]:
     """
     Post-processing of sparql queries. Allow to store inputs and outputs concatenated by sparql into lists for future

@@ -156,8 +156,6 @@ class Assembler():
         # Save workflow and inputs values respectively in Workflows (.cwl file) and Jobs (.yml file) folders
         wf_inputs, wf_name = save_workflow(ontology, self.workflow, path_to_cwl_folder)
 
-        # Get inputs values for the chosen combination (save job file)
-        # provide_and_save_inputs(wf_inputs, wf_name)
 
     def _store_workflow_choice(self, choice_method: int, choice_input: int,
                               methods_dict: dict[str, dict[str, list[list[str]]]],
