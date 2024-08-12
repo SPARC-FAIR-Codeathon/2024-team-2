@@ -50,10 +50,10 @@ The NIH Common Fund program on **[Stimulating Peripheral Activity to Relieve Con
 
 **The scientific community is developing new tools and models** to process and understand measurements in these datasets to generate new results, outcomes, and knowledge. These tools and models are often applied in a series of steps to create workflows whose outputs provide quantities of interest. For example, a user may be creating a workflow that inputs medical images of the brain (measurement) and segments brain tissue from these images (tool) that can output brain volume (quantity of interest). Another user maybe interest in a workflow that inputs electrode measurements from the surface of the heart to personalise a computational model of cardiac electrophysiology to quantify activation patterns. These workflows may require multiple intermediate tools and models to generate the final output of interest. 
 
-In addition to Significant effort has been made globally to make 
+In addition to significant effort has been made globally to make 
 
 ## The problem
-Despite users having an general idea of the quantities of interest in their investigations (e.g. outputs of specific models or tools they are developing), they typically need to assemble workflows manually, often guessing what inputs and intermediate measurements, models, and tools may be needed.
+Despite users having a general idea of the quantities of interest in their investigations (e.g. outputs of specific models or tools they are developing), they typically need to assemble workflows manually, often guessing what inputs and intermediate measurements, models, and tools may be needed.
 
 There is **currently no option for users to**:
 - **easily find and access existing models and tools**:
@@ -61,46 +61,50 @@ There is **currently no option for users to**:
   - developed externally that could be used for processing SPARC data
 - **easily assemble new workflows that reuse existing models and tools to evaluate quantities of interest**
 - **easily identify which measurements (e.g. SPARC datasets) already contain the necessary inputs for these new workflows**
-- **easily identify which measurements, tools, and/or models may be missing** to support effcient advancement of research efforts 
+- **easily identify which measurements, tools, and/or models may be missing** to support efficient advancement of research efforts 
 
 ## Vision and benefits
-Our vision is to provide capabilities to:
-- automatically assemble workflows by leveraging knowledge graphs that integrate existing measurements models, tools of interest X of interest
-- Run these newly created workflows locally or in existing platforms such as oSPARC
-- Integrate
-- Incorporate natural language processing to help simplify how users can 
-- provide a way to quickly 
-- These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
+Our vision is to provide a tool that can address the above problem by:
+- providng a knowledgebase of existing measurements, models, and tools developed (or being developed) by the SPARC and wider communities
+- leverage the knowledgebase to automatically assemble workflow descriptions that can be used to evaluate quantities of interest
+- run the assembled workflow(s) or help identify missing components that are needed to run the assembled workflow
+- store assembled workfow descriptions in a FAIR manner such that they can potentially be e.g. [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) 
 
-Providing these capabilites would:
-- Significantly improve search functionality 
-- Maximise finability and impact of existing SPARC resoures
-- Support priorite new investigations for gathering new knowledge (e.g. collecting new data or developing new models or tools)
-- Support efforts for FAIR 
+Providing these capabilites would: 
+- significantly improve search functionality, especially if it is integrated with shared infrastructure such as the SPARC portal
+- maximise finability, reusabilty, and therefore, the impact of existing SPARC resoures (providing an pathway for other communities that are building tools and models to make use of SPARC data)
+- support investigations for gathering missing  knowledge (e.g. collecting new data or developing new models or tools)
+- support efforts for FAIR
+- support reuse of assembled workflows by the community for generating scientific advances.
 - help identify which measurements  models, tools  avenues for research to fill in gaps in our knowledge and capabilities
 
 ## Our solution - sparc-assemble
-To address this problem and support our vision, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles. The following features are currently supported: 
-- Extracting and annotating existing tools and models from SPARC datasets
+To address this problem and support our vision, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles. 
+
+The following features are currently supported: 
+- Extracting and annotating existing tools and models from SPARC datasets to help standardise and harmonise their input and output descriptions
 - Accessing existing tools and models from external repositories such as [WorkflowHub](https://workflowhub.eu) and Biomodels
 - Storing information about the model and tools in a local knowledge graph defined by the standardised [EDAM ontology](http://edamontology.org) (which has been deveoped for bioscientific data analysis and data management)
 - Listing all available models and tools
-- Performing queries to automatically assemble workflows:
+- Performing queries to **automatically** assemble workflows:
   - List all possible workflows (model and tool combinations) that would enable evaluation of a quantity of interest (ie an output of a model or tool)
   - Identify which SPARC datasets contain the required inputs to the workflow
   - Idenitfy which measurement, model, and tool inputs are missing
-- Provides a natural language inteface to support  
-- Provides an easy-to-use python-based application programming interface (API) to provide the above functionality 
+- Stores assembled workflows using the SPARC Dataset Structure to ensure they are FAIR
+- Provides an easy-to-use python-based application programming interface (API) to provide the above functionality
+- Provides a **natural language inteface** to make it easy for users to specify their quantity of interest
 - Provides a series of tutorials to demonstrate the functionality of sparc-assemble
-- Reuses existing SPARC resources and tools including XXX
+- Reuses existing SPARC resources and tools including sparc-me, sparc-flow, and the sparc-python-client
   
 ## Designed to enable FAIRness
 We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](INSERT GOOGLE DOC).
 
 ## Future developments
 - Workflow and tool registry in SPARC portal
-- Integrate our knowledge graph with 
-- Improve how the knowledge graph Include persistent identifiers in the knowledge graph
+- standardise the description of intputs and outputs of these models and tools
+- Integrate our knowledge graph with other SPARC knowledgebases (
+-  Leverage anatomical and funcational connetivity to assemble new workflows
+- share
 - Expand tool descriptions that can be access e.g. Workflow Description Language, Nextflow, Snakemake etc 
 - Link with Language Models to support
   
