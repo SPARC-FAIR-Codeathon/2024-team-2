@@ -117,7 +117,33 @@ class KG:
         for index, tool in enumerate(query_results, start=1):
             print(f"\t {index}- {','.join(tool[1])} -> {tool[0]} -> {', '.join(tool[2])}")
 
-    def add_model(self, model_path=None):
+    def add_biomodels_model(self, inputs, outputs, model_name, model_path):
+        # Retrieve individuals already in KG
+        individuals = list(self._ontology.individuals())
+        individual_names = [str(indiv_onto).removeprefix(self._ontology_file[:-3]) for indiv_onto in
+                            individuals]
+
+        for key in inputs:
+            # Create list of input individuals
+            input_individuals = self._populate_ontology(self._ontology, individual_names, individuals, key)
+
+        for key in outputs:
+            # Create list of input individuals
+            output_individuals = self._populate_ontology(self._ontology, individual_names, individuals, key)
+
+
+        method = self._ontology.operation_0004(model_name)
+
+        # Link inputs and outputs to method
+        method.has_input = input_individuals
+        method.has_output = output_individuals
+
+        # Add description, label and file name
+        # method.comment = data['comment'] Maybe for later for NLP
+        method.label = model_name
+        method.isDefinedBy = model_path
+
+    def add_sparc_model(self, model_path=None):
         # Retrieve individuals already in KG
         individuals = list(self._ontology.individuals())
         individual_names = [str(indiv_onto).removeprefix(self._ontology_file[:-3]) for indiv_onto in
