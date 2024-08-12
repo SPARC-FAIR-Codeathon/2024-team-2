@@ -15,7 +15,7 @@ class Assembler():
         self.workflow_options_dict = None
         self.workflow = None
 
-    def run(self):
+    def run(self, path_to_cwl_folder: str):
         """
         Main function of the program. Parse arguments, load ontology, display options to the user, prompt user for choice in
         a GUI or terminal. Run the chosen workflow.
@@ -23,7 +23,7 @@ class Assembler():
         # Retrieve ontology
         ontology = owl.get_ontology(self.KG_path).load()
 
-        # Define request options (all data individuals for now) TODO: NLP to retrieve requests
+        # Define request options
         request_options = [ind.name for ind in list(ontology.individuals()) if
                            ind.is_a[0] == ontology.data_0006 and ontology.is_output_of in ind.get_properties()]
 
@@ -34,8 +34,8 @@ class Assembler():
         self._handle_request_choice(request_options[selected_request], ontology)
 
         # Prompt user for methods and workflows choice, save workflow and inputs values
-        workflow_file, inputs_file = self._workflow_choice_and_save(workflow_options_dict, request_options[selected_request],
-                                                              ontology)
+        self._workflow_choice_and_save(workflow_options_dict, request_options[selected_request],
+                                                              ontology, path_to_cwl_folder)
 
 
 
@@ -131,7 +131,7 @@ class Assembler():
             return ''
 
     def _workflow_choice_and_save(self, options_dict: dict[str, dict[str, list[list[str]]]], request: str, ontology: Ontology,
-                                 interface=None) -> Union[None | str, str]:
+                                  path_to_cwl_folder: str) -> Union[None | str, str]:
         """
         Prompt user to choose a method and an input combination plus inputs value of the corresponding combination.
         TODO: Only support choosing one method.
@@ -154,12 +154,8 @@ class Assembler():
         self._store_workflow_choice(choice_method, choice_input, options_dict, options)
 
         # Save workflow and inputs values respectively in Workflows (.cwl file) and Jobs (.yml file) folders
-        wf_inputs, wf_name = save_workflow(ontology, self.workflow)
+        wf_inputs, wf_name = save_workflow(ontology, self.workflow, path_to_cwl_folder)
 
-        # Get inputs values for the chosen combination (save job file)
-        # provide_and_save_inputs(wf_inputs, wf_name)
-
-        return f'resourceswWorkflows/{wf_name}.cwl', f'resources/jobs/{wf_name}.yml'
 
     def _store_workflow_choice(self, choice_method: int, choice_input: int,
                               methods_dict: dict[str, dict[str, list[list[str]]]],
