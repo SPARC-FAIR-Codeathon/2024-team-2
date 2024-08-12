@@ -13,17 +13,18 @@ inputs:
       position: 2
       prefix: --versionId
   outputFile:
-    type: File
+    type: string
     inputBinding:
       position: 3
       prefix: --outputFile
 outputs:
   xFile:
-      type: File
-      outputBinding:
-        glob: $(inputs.outputFile)
+    type: File
+    outputBinding:
+      glob: "$(runtime.outdir)/$(inputs.outputFile)"
 
 requirements:
+  InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:  # Ensure Python script available in current working directory
     listing:
      - class: File
@@ -31,7 +32,11 @@ requirements:
        contents: |
          datasetId=262
          versionId=1.1
-         outputFile='.outputs/time.txt'
+         outputFile='time.txt'
+     - class: File
+       path: resources/time.txt
+       basename: "time.txt"
+       contents: ""
 
 # run the tool
 #cwltool tool_extract_indep_var_sds.cwl input_extract_indep_var.yaml
