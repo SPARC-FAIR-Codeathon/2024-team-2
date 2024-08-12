@@ -25,15 +25,16 @@ A Python tool to automatically assemble models and tools into workflows to proce
 * [About](#about)
 * [Introduction](#introduction)
 * [The problem](#the-problem)
+* [Vision](#vision)
 * [Our solution - sparc-assemble](#our-solution---sparc-assemble)
-* [Impact and vision](#impact-and-vision)
+* [Impact](#impact)
+* [Designed to enable FAIRness](#designed-to-enable-fairness)
 * [Future developments](#future-developments)
 * [Setting up sparc-assemble](#setting-up-sparc-assemble)
 * [Using sparc-assemble](#using-sparc-assemble)
 * [Reporting issues](#reporting-issues)
 * [Contributing](#contributing)
 * [Cite us](#cite-us)
-* [FAIR practices](#fair-practices)
 * [License](#license)
 * [Team](#team)
 * [Acknowledgements](#acknowledgements)
@@ -86,6 +87,7 @@ To address this problem, we have **developed a Python module called SPARC Assemb
 - Support efforts for FAIR 
   
 ## Designed to enable FAIRness
+We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](INSERT GOOGLE DOC).
 
 ## Future developments
 - Workflow and tool registry in SPARC portal
@@ -216,9 +218,6 @@ If you use sparc-assemble to make new discoveries or use the source code, please
 ```
 Mathilde Verlyck, Jiali Xu, Max Dang Vu, Thiranja Prasad Babarenda Gamage, Chinchien Lin (2024). sparc-assemble: v1.0.0 - A Python tool to find and automatically assemble tools and workflows to process SPARC datasets in accordance with FAIR principles. Zenodo. https://doi.org/XXXX/zenodo.XXXX.
 ```
-
-## FAIR practices
-We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](INSERT GOOGLE DOC).
 
 ## License
 sparc-assemble is fully open source and distributed under the very permissive Apache License 2.0. See [LICENSE](https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/LICENSE) for more information.
