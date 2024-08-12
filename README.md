@@ -59,29 +59,38 @@ There is **currently no option for users to**:
 - **easily reuse these models and tools to assemble new workflows** for:
   - processing existing SPARC data
   - helping identify new data that could be collected to fill in gaps in our knowledge
+- **easily identify which SPARC datasets contain the inputs required for 
 - **easily run such workflows locally or from cloud computing platforms such as oSPARC**
 - **easily reproduce workflow results**
+
+## Vision
+- Assemble any X of interest
+- These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
 
 ## Our solution - sparc-assemble
 To address this problem, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles with the following features: 
 - Extract and annotate existing tools and models from SPARC datasets
-- Access existing tools and models from external repositories such as WorkflowHub and Biomodels
-- Store information about the model and tools in a local knowledge graph
+- Access existing tools and models from external repositories such as [WorkflowHub](https://workflowhub.eu) and Biomodels
+- Store information about the model and tools in a local knowledge graph defined by the standardised [EDAM ontology](http://edamontology.org) (which has been deveoped for bioscientific data analysis and data management)
 - List all available models and tools
+- Perform queries to automatically assemble workflows:
+  - List all possible workflows (model and tool combinations) that would enable evaluation of a quantity of interest (ie an output of a model or tool)
+  - Identify which SPARC datasets contain the required inputs to the workflow
+  - Idenitfy which measurement, model, and tool inputs are missing
 - Provides an easy-to-use python-based application programming interface (API) to interact with the library
 - Provides a series of tutorials
 
-- - These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
-
-**If you find sparc-assemble useful, please add a GitHub Star to support developments!**
-
-### Designed to enable FAIRness
-
-## Impact and vision
+## Impact
+- Maximise finability and impact of existing SPARC resoures
+- Support priorite new investigations for gathering new knowledge (e.g. collecting new data or developing new models or tools)
+- Support efforts for FAIR 
   
+## Designed to enable FAIRness
+
 ## Future developments
 - Workflow and tool registry in SPARC portal
-- Improve how the knowledge graph Include persistent identifiers in the knowledge graph 
+- Improve how the knowledge graph Include persistent identifiers in the knowledge graph
+- Expand tool descriptions that can be access e.g. Workflow Description Language, Nextflow, Snakemake etc 
 
 ## Setting up sparc-assemble
 
@@ -131,6 +140,8 @@ git clone https://github.com/SPARC-FAIR-Codeathon/2024-team-2.git
     ```
 
 ## Using sparc-assemble
+
+**If you find sparc-assemble useful, please add a GitHub Star to support developments!**
 
 ### Running tutorials
 
