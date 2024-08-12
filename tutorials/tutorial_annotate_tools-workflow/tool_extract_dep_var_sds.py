@@ -26,12 +26,8 @@ def extract_dependent_variable_sds(xFile, outputFile):
     :type outputFile: str
     """
 
-    #   Get full path to script file
-    dir_path = os.path.abspath('')
-    outputPath = os.path.join(dir_path, 'outputs')
-
     #   Load file
-    x = np.loadtxt(os.path.join(outputPath, xFile), delimiter=',')
+    x = np.loadtxt(xFile, delimiter=',')
 
     get_electrodes = False
 
@@ -189,9 +185,10 @@ def extract_dependent_variable_sds(xFile, outputFile):
           -7.328525557563466932e-07,
           -8.203079358028723468e-07]]
 
-    #   Save independent variable measurement to .txt files
-    os.makedirs(outputPath, exist_ok=True)
-    np.savetxt(os.path.join(outputPath, outputFile), np.array(y).T, delimiter=',')
+    #   Save dependent variable measurement to .txt files
+    parent_dir = os.path.dirname(outputFile)
+    os.makedirs(parent_dir, exist_ok=True)
+    np.savetxt(outputFile, np.array(y).T, delimiter=',')
 
 
 def main():
