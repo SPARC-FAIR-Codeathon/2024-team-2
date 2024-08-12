@@ -25,8 +25,7 @@ A Python tool to automatically assemble models and tools into workflows to proce
 * [About](#about)
 * [Introduction](#introduction)
 * [The problem](#the-problem)
-* [Vision](#vision)
-* [Benefits](#benefits)
+* [Vision and benefits](#vision-and-benefits)
 * [Our solution - sparc-assemble](#our-solution---sparc-assemble)
 * [Designed to enable FAIRness](#designed-to-enable-fairness)
 * [Future developments](#future-developments)
@@ -55,6 +54,7 @@ In addition to Significant effort has been made globally to make
 
 ## The problem
 Despite users having an general idea of the quantities of interest in their investigations (e.g. outputs of specific models or tools they are developing), they typically need to assemble workflows manually, often guessing what inputs and intermediate measurements, models, and tools may be needed.
+
 There is **currently no option for users to**:
 - **easily find and access existing models and tools**:
   - developed by the SPARC community for processing SPARC data 
@@ -63,14 +63,15 @@ There is **currently no option for users to**:
 - **easily identify which measurements (e.g. SPARC datasets) already contain the necessary inputs for these new workflows**
 - **easily identify which measurements, tools, and/or models may be missing** to support effcient advancement of research efforts 
 
-## Vision
-- Provide capability to automatically assemble workflows by integrating existing measurements models, tools of interest X of interest
-- Link with Language Models to support
-- Run these newly created workflows locally or in existing platforms such as oSPARC. 
+## Vision and benefits
+The vision is to provide capabilities to:
+- automatically assemble workflows by integrating existing measurements models, tools of interest X of interest
+- Run these newly created workflows locally or in existing platforms such as oSPARC
+- provide a way to quickly 
 - These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
 
-## Benefits
-- This would provide substantial improvemtns to enrich
+Providing these capabilites would:
+- Significantly improve search functionality 
 - Maximise finability and impact of existing SPARC resoures
 - Support priorite new investigations for gathering new knowledge (e.g. collecting new data or developing new models or tools)
 - Support efforts for FAIR 
@@ -89,6 +90,7 @@ To address this problem and support the vision, we have **developed a Python mod
 - Provides a natural language inteface to  
 - Provides an easy-to-use python-based application programming interface (API) to provide the above functionality 
 - Provides a series of tutorials
+- Reuses existing SPARC resources and tools including XXX
   
 ## Designed to enable FAIRness
 We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](INSERT GOOGLE DOC).
@@ -97,7 +99,8 @@ We have assessed the FAIRness of our sparc-assemble tool against the FAIR Princi
 - Workflow and tool registry in SPARC portal
 - Improve how the knowledge graph Include persistent identifiers in the knowledge graph
 - Expand tool descriptions that can be access e.g. Workflow Description Language, Nextflow, Snakemake etc 
-
+- Link with Language Models to support
+  
 ## Setting up sparc-assemble
 
 ### Pre-requisites 
