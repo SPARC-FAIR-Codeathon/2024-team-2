@@ -1,5 +1,5 @@
 # SPARC Assemble (sparc-assemble)
-A Python tool to find and automatically assemble tools and workflows to process SPARC datasets in accordance with FAIR principles.
+A Python tool to automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles.
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -48,23 +48,30 @@ The NIH Common Fund program on **[Stimulating Peripheral Activity to Relieve Con
 
 **The [SPARC Portal](http://sparc.science/) provides a single user-facing online interface to resources** that can be shared, cited, visualized, computed, and used for virtual experimentation. A **key offering** of the portal is the **collection of well-curated datasets in a standardised format, including anatomical and computational models** that are being generated both SPARC-funded researchers and the international scientific community. These datasets can be found under the "[Find Data](https://sparc.science/data?type=dataset)" section of the SPARC Portal. Information regarding [how to navigate a SPARC dataset](https://docs.sparc.science/docs/navigating-a-sparc-dataset) and [how a dataset is formatted](https://docs.sparc.science/docs/overview-of-sparc-dataset-format) can be found on the SPARC Portal.
 
-**The scientific community is developing tools to process the original data and generate new results, outcomes, and knowledge**
+**The scientific community is developing workflows that apply models and tools in a series of steps to process and understand the original data and generate new results, outcomes, and knowledge** (e.g. segmentation of images, or personalising and running computational physiology models).
 
-**Workflows can be developed that apply tools** (e.g. segmentation of images, or running of computational physiology simulations) in a series of steps **to . These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
+Significant effort has been made globally to make 
 
 ## The problem
 There is **currently no option for users to**:
 - **easily find and access existing tools and workflows developed by the SPARC community for processing SPARC data** 
 - **easily find and access external tools that could be used for processing SPARC data**
-- **easily reuse these tools to assemble and run new workflows** for:
+- **easily reuse these models and tools to assemble new workflows** for:
   - processing existing SPARC data
   - helping identify new data that could be collected to fill in gaps in our knowledge
 - **easily run such workflows locally or from cloud computing platforms such as oSPARC**
 - **easily reproduce workflow results**
 
 ## Our solution - sparc-assemble
-To address this problem, we have **developed a Python module called the SPARC Assemble (sparc-assemble)** that can be used to find and automatically assemble workflows and tools to process SPARC datasets in accordance with FAIR principles:
-- Provides an easy-to-use python-based application programming interface (API) to enable searching of available **tools** and **workflows**
+To address this problem, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles with the following features: 
+- Extract and annotate existing tools and models from SPARC datasets
+- Access existing tools and models from external repositories such as WorkflowHub and Biomodels
+- Store information about the model and tools in a local knowledge graph
+- List all available models and tools
+- Provides an easy-to-use python-based application programming interface (API) to interact with the library
+- Provides a series of tutorials
+
+- - These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
 
 **If you find sparc-assemble useful, please add a GitHub Star to support developments!**
 
@@ -73,7 +80,8 @@ To address this problem, we have **developed a Python module called the SPARC As
 ## Impact and vision
   
 ## Future developments
-- Workflow and tool registry in SPARC portal 
+- Workflow and tool registry in SPARC portal
+- Improve how the knowledge graph Include persistent identifiers in the knowledge graph 
 
 ## Setting up sparc-assemble
 
