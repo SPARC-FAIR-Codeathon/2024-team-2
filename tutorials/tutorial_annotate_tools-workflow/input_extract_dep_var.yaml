@@ -1,6 +1,4 @@
 xFile:
   class: File
   path: './outputs/time.txt'
-outputFile:
-  class: File
-  path: './outputs/voltage.txt'
+outputFile: 'voltage.txt'
