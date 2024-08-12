@@ -1,8 +1,8 @@
 """
 Created on 11/08/2024 (NZT time)
 
-This tool uses obtain dependent variable measurements from a SDS dataset at the
-corresponding independent variable measurements from tool_extract_indep_var_sds.py
+This tool extracts the dependent variable measurements from a SDS dataset at the
+corresponding independent variable measurements from tool_extract_indep_var_sds.py.
 
 Author: Max Dang Vu
 Organisation: Auckland Bioengineering Institute
@@ -18,15 +18,20 @@ def extract_dependent_variable_sds(xFile, outputFile):
     """
     This function extracts an array of the dependent variable measurements from a SDS dataset
     at the specified independent variable measurements from tool_extract_indep_var_sds.py.
+    The dependent variable measurements are also saved to a .txt file.
 
     :param xFile: independent variable quantity measurements from dataset extracted from a .txt file
     :type xFile: directory
-    :param outputFile: file path for saving dependent variable measurements from dataset
-    :type yFile: string
+    :param outputFile: Output filename for .txt file
+    :type outputFile: str
     """
 
+    #   Get full path to script file
+    dir_path = os.path.abspath('')
+    outputPath = os.path.join(dir_path, 'outputs')
+
     #   Load file
-    x = np.loadtxt(xFile, delimiter=',')
+    x = np.loadtxt(os.path.join(outputPath, xFile), delimiter=',')
 
     get_electrodes = False
 
@@ -184,9 +189,9 @@ def extract_dependent_variable_sds(xFile, outputFile):
           -7.328525557563466932e-07,
           -8.203079358028723468e-07]]
 
-    parent_dir = os.path.dirname(outputFile)
-    os.makedirs(parent_dir, exist_ok=True)
-    np.savetxt(outputFile, np.array(y).T, delimiter=',')
+    #   Save independent variable measurement to .txt files
+    os.makedirs(outputPath, exist_ok=True)
+    np.savetxt(os.path.join(outputPath, outputFile), np.array(y).T, delimiter=',')
 
 
 def main():
