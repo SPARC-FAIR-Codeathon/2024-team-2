@@ -9,18 +9,20 @@ Organisation: Auckland Bioengineering Institute
 """
 
 import argparse
+import os
+
+import numpy as np
 
 
 def extract_dependent_variable_sds(x):
     """
-    This function extracts the dependent variable measurements from a SDS dataset at the
-    specified independent variable measurements from tool_extract_indep_var_sds.py.
+    This function extracts an array of the dependent variable measurements from a SDS dataset
+    at the specified independent variable measurements from tool_extract_indep_var_sds.py.
 
-    :param x: independent variable of the SDS dataset extracted from the previous tool in workflow
-    :type x: n x 1 array
-    :return y: dependent variable quantity of the SDS dataset
-    :rtype y: n x 3 array
+    :param x: independent variable quantity measurements from dataset extracted from a .txt file
+    :type x: ndarray
     """
+
     get_electrodes = False
 
     #   Electrodes used to measure membrane voltage in each case
@@ -177,7 +179,13 @@ def extract_dependent_variable_sds(x):
           -7.328525557563466932e-07,
           -8.203079358028723468e-07]]
 
-    return y
+    #   Create output folder if not created
+    output_path = "outputs"
+    os.makedirs(output_path, exist_ok=True)
+
+    #   Store dependent variable measurements as .txt file
+    np.savetxt(os.path.join(output_path, "voltage.txt"),
+               np.array(y).T, delimiter=',')
 
 
 def main():
@@ -188,7 +196,7 @@ def main():
 
     #   Extract voltage measurements from this SDS dataset for three different channels
     #   (https://sparc.science/datasets/262?type=dataset)
-    y = extract_dependent_variable_sds(x=args.x)
+    extract_dependent_variable_sds(x=args.x)
 
 
 if __name__ == "__main__":
