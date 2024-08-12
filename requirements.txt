@@ -4,3 +4,4 @@ ruamel.yaml
 thefuzz==0.22.1
 spacy
 torch==2.3.0
+sentence-transformers
