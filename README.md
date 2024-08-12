@@ -64,9 +64,11 @@ There is **currently no option for users to**:
 - **easily identify which measurements, tools, and/or models may be missing** to support effcient advancement of research efforts 
 
 ## Vision and benefits
-The vision is to provide capabilities to:
-- automatically assemble workflows by integrating existing measurements models, tools of interest X of interest
+Our vision is to provide capabilities to:
+- automatically assemble workflows by leveraging knowledge graphs that integrate existing measurements models, tools of interest X of interest
 - Run these newly created workflows locally or in existing platforms such as oSPARC
+- Integrate
+- Incorporate natural language processing to help simplify how users can 
 - provide a way to quickly 
 - These results (derived data) can be stored in a new standardised dataset and potentially be [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) to support further scientific advances.
 
@@ -78,18 +80,18 @@ Providing these capabilites would:
 - help identify which measurements  models, tools  avenues for research to fill in gaps in our knowledge and capabilities
 
 ## Our solution - sparc-assemble
-To address this problem and support the vision, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles with the following features: 
-- Extract and annotate existing tools and models from SPARC datasets
-- Access existing tools and models from external repositories such as [WorkflowHub](https://workflowhub.eu) and Biomodels
-- Store information about the model and tools in a local knowledge graph defined by the standardised [EDAM ontology](http://edamontology.org) (which has been deveoped for bioscientific data analysis and data management)
-- List all available models and tools
-- Perform queries to automatically assemble workflows:
+To address this problem and support our vision, we have **developed a Python module called SPARC Assemble (sparc-assemble)** that can be used to find, access, and automatically assemble models and tools into workflows to process SPARC datasets in accordance with FAIR principles. The following features are currently supported: 
+- Extracting and annotating existing tools and models from SPARC datasets
+- Accessing existing tools and models from external repositories such as [WorkflowHub](https://workflowhub.eu) and Biomodels
+- Storing information about the model and tools in a local knowledge graph defined by the standardised [EDAM ontology](http://edamontology.org) (which has been deveoped for bioscientific data analysis and data management)
+- Listing all available models and tools
+- Performing queries to automatically assemble workflows:
   - List all possible workflows (model and tool combinations) that would enable evaluation of a quantity of interest (ie an output of a model or tool)
   - Identify which SPARC datasets contain the required inputs to the workflow
   - Idenitfy which measurement, model, and tool inputs are missing
-- Provides a natural language inteface to  
+- Provides a natural language inteface to support  
 - Provides an easy-to-use python-based application programming interface (API) to provide the above functionality 
-- Provides a series of tutorials
+- Provides a series of tutorials to demonstrate the functionality of sparc-assemble
 - Reuses existing SPARC resources and tools including XXX
   
 ## Designed to enable FAIRness
@@ -97,6 +99,7 @@ We have assessed the FAIRness of our sparc-assemble tool against the FAIR Princi
 
 ## Future developments
 - Workflow and tool registry in SPARC portal
+- Integrate our knowledge graph with 
 - Improve how the knowledge graph Include persistent identifiers in the knowledge graph
 - Expand tool descriptions that can be access e.g. Workflow Description Language, Nextflow, Snakemake etc 
 - Link with Language Models to support
