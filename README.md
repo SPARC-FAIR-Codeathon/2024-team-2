@@ -65,7 +65,9 @@ There is **currently no option for users to**:
 
 ## Vision and benefits
 Our vision is to provide a tool that can address the above problem by:
-- providng a knowledgebase of existing measurements, models, and tools developed (or being developed) by the SPARC and wider communities
+- providng a knowledgebase that:
+  - describes existing measurements, models, and tools developed by the SPARC and wider communities
+  - provides a map of all the inputs and outputs of the available models and tools
 - leverage the knowledgebase to automatically assemble workflow descriptions that can be used to evaluate quantities of interest
 - run the assembled workflow(s) or help identify missing components that are needed to run the assembled workflow
 - store assembled workfow descriptions in a FAIR manner such that they can potentially be e.g. [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) 
