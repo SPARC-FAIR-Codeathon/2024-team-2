@@ -45009,6 +45009,43 @@ ows re-sequencing of complete genomes of any given organism with high resolution
   <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#string">true</owl:deprecated>
 </owl:Class>
 
+<owl:NamedIndividual rdf:about="tool_extract_dep_var_sds">
+  <rdf:type rdf:resource="operation_0004"/>
+  <has_input rdf:resource="x_file"/>
+  <has_output rdf:resource="y_file"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tool_extract_dep_var_sds</rdfs:label>
+  <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">../tools/tool_extract_dep_var_sds.cwl</rdfs:isDefinedBy>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="x_file">
+  <rdf:type rdf:resource="data_0006"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x_file</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="y_file">
+  <rdf:type rdf:resource="data_0006"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">y_file</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="tool_extract_indep_var_sds">
+  <rdf:type rdf:resource="operation_0004"/>
+  <has_input rdf:resource="Version ID"/>
+  <has_input rdf:resource="Dataset ID"/>
+  <has_output rdf:resource="x_file"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tool_extract_indep_var_sds</rdfs:label>
+  <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">../tools/tool_extract_indep_var_sds.cwl</rdfs:isDefinedBy>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Dataset ID">
+  <rdf:type rdf:resource="data_0006"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dataset ID</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Version ID">
+  <rdf:type rdf:resource="data_0006"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version ID</rdfs:label>
+</owl:NamedIndividual>
+
 <owl:Axiom>
   <owl:annotatedSource rdf:resource="operation_3357"/>
   <owl:annotatedProperty rdf:resource="comment_handle"/>
