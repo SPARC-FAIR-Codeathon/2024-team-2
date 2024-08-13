@@ -1,0 +1,15 @@
+{
+  "Operation": "tool_extract_dep_var_sds",
+  "comment": "retrieves and saves dependent variable quantities measured at the corresponding independent variable measurements",
+  "Input": [
+    {"x_file": {
+      "type": "file"
+    }}
+  ],
+  "Output": [
+    {"y_file": {
+      "type": "file"
+    }}
+  ],
+  "cwl": "../tools/tool_extract_dep_var_sds.cwl"
+}

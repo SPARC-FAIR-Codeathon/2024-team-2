@@ -1,0 +1,18 @@
+{
+  "Operation": "tool_extract_indep_var_sds",
+  "comment": "gets SDS dataset, retrieves and saves independent variable measurements",
+  "Input": [
+    {"Dataset ID": {
+      "type": "float"
+    }},
+    {"Version ID": {
+      "type": "float"
+    }}
+  ],
+  "Output": [{
+    "x_file": {
+      "type": "file"
+    }
+  }],
+  "cwl": "../tools/tool_extract_indep_var_sds.cwl"
+}
