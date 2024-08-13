@@ -103,18 +103,22 @@ The following features are currently supported:
 - Provides an easy-to-use python-based application programming interface (API) to provide the above functionality
 - Provides a **natural language inteface** to make it easy for users to specify their quantity of interest
 - Provides a series of tutorials to demonstrate the functionality of sparc-assemble
-- Reuses existing SPARC resources and tools including sparc-me, sparc-flow, and the sparc-python-client
+- Reuses existing SPARC resources and tools including [sparc-me](https://github.com/SPARC-FAIR-Codeathon/sparc-me), [sparc-flow](https://github.com/SPARC-FAIR-Codeathon/sparc-flow), and the sparc-python-client.
   
 ## Designed to enable FAIRness
-We have endevoured enusre FAIRness of sparc-assemble and the tools that it uses.  against the FAIR Principles established for research software. The details of this assemsement  in the following [document](INSERT GOOGLE DOC).
+We have assessed the FAIRness of our sparc-assemble against the FAIR Principles established for research software. The details of this assemsement is available in the following [document](INSERT GOOGLE DOC).
+
+Additionally, sparc-assemble has adopted exsiting dataset, knoweledge graph and workflow standards including:  
+- The Common Workflow Language (CWL) - is an open standard and specification used in the field of bioinformatics and scientific computing to describe and execute tools and workflows. CWL provides a way to define and share complex computational tasks and data processing pipelines in a portable and platform-independent manner. It uses a JSON-based format to describe input data, processing steps, and output data, allowing researchers to collaborate and share reproducible analyses across different computing environments. CWL aims to enhance the ease of defining, sharing, and executing computational workflows, particularly in the context of data-intensive scientific research.
+- EDAM ontology - EDAM is a comprehensive ontology of well-established, familiar concepts that are prevalent within bioscientific data analysis and data management (including computational biology, bioinformatics, and bioimage informatics). EDAM includes topics, operations, types of data and data identifiers, and data formats, relevant in data analysis and data management in life sciences.
+- SPARC Dataset Structure
 
 ## Future developments
-- Workflow and tool registry in SPARC portal
-- standardise the description of intputs and outputs of these models and tools
-- Integrate our knowledge graph with other SPARC knowledgebases (
-- Leverage anatomical and funcational connetivity to assemble new workflows
-- Expand tool descriptions that can be access e.g. Workflow Description Language, Nextflow, Snakemake etc 
-- Link with Language Models to support
+- Standardise the description of intputs and outputs of these models and tools
+- Integrate our knowledge graph with other knowledgebases including the SPARC Anatomical Connectivity Maps and SPARC Functional Connectivity maps. This will enable workflows to be automatically assembled not only based on input/output relationships, but also based on anatomical and physiological connectivity.
+- Expand tool descriptions that can be accessed e.g. Workflow Description Language, Nextflow, Snakemake etc 
+- Link with Large Language Models to support more complex queries, for example to help visualise quantities of interest.
+- Show how the assembled workflows can be run with [sparc-flow](https://github.com/SPARC-FAIR-Codeathon/sparc-flow) directly from the commandline or through existing cloud computing platforms from [Dockstore.org](https://dockstore.org) (currently supports running on [AnVIL](https://anvilproject.org), [Cavatica](https://www.cavatica.org), [CGC](https://www.cancergenomicscloud.org), [DNAnexus](https://www.dnanexus.com), [Galaxy](https://usegalaxy.org), [Nextflow Tower](https://seqera.io/tower), and [Terra].
   
 ## Setting up sparc-assemble
 
