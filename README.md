@@ -251,16 +251,16 @@ Mathilde Verlyck, Jiali Xu, Max Dang Vu, Thiranja Prasad Babarenda Gamage, Chinc
 sparc-assemble is fully open source and distributed under the very permissive Apache License 2.0. See [LICENSE](https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/LICENSE) for more information.
 
 ## Team
-* Mathilde Verlyck <mver587@aucklanduni.ac.nz> (Developer, Writer - Documentation)
+* [Mathilde Verlyck](https://github.com/MathildeVerlyck) (Developer, Writer - Documentation)
 * [Jiali Xu](https://github.com/JialiXu12) (Developer, Writer - Documentation)
-* Max Dang Vu <mdan066@aucklanduni.ac.nz>  (Developer, Writer - Documentation)
+* [Max Dang Vu](https://github.com/MaxDangVu136) (Developer, Writer - Documentation)
 * [Thiranja Prasad Babarenda Gamage](https://github.com/PrasadBabarendaGamage) (Writer - Documentation)
 * [Chinchien Lin](https://github.com/LIN810116) (Lead, SysAdmin)
 
 ## Acknowledgements
 We would like to thank the organizers of the 2024 SPARC Codeathon for their guidance and support during this Codeathon.
 
-This Codeathon entry was built upon an existing tool that provided the basic functionality of adding a tool to a knowledge graph (which used the EDAM ontology) and automated workflow assembly. Please note that this repository is currently private. Please provide the github IDs of the judges and access will be provided.
+This Codeathon entry leveraged functionality of an [existing software tool](https://github.com/MathildeVerlyck/workflow-assembly/tree/mini-prototype) that provided the basic functionality of adding a tool to a knowledge graph (which used the EDAM ontology) and automated workflow assembly. Please note that this repository is currently private. Please provide the github IDs of the judges and access will be provided.
 
 No work was done on this codeathon project prior to the start of the codeathon. All additional functionality described in the "our solution" section above was implemented during the codeathon including refactoring and incorporating the core functionality into a library and API within sparc-assemble, extending it to cater for models, natural language processing, all tutorial content etc, as evidenced by our commit history.
 
