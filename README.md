@@ -185,37 +185,37 @@ Guided Jupyter Notebook tutorials have been developed describing how to use spar
 </thead>
 <tbody>
   <tr>
-    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_1/XXX.ipynb">
+    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/tutorials/tutorial_1_annotate_tools-workflow/tutorial_1_annotating_tools_models.ipynb">
     1
     </a></td>
     <td> Annotation of computational models and tools from existing SPARC datasets. </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_2/XXX.ipynb">
+    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/tutorials/tutorial_2_creating_knowledge_graph/tutorial_2_creating_knowledge_graph.ipynb">
     2
     </a></td>
     <td> Building a knowledge graph for automated workflow assembly. </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_3/XXX.ipynb">
+    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/tutorials/tutorial_3_adding_SPARC_tools_to_the_knowledge_graph/tutorial_3_adding_SPARC_tools_to_the_knowledge_graph.ipynb">
     3
     </a></td>
     <td> Adding tools created from existing SPARC datasets to the knowledge graph. </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_4/XXX.ipynb">
+    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/tutorials/tutorial_4_adding_non-SPARC_tools_and_models_to_the_knowledge_graph/tutorial_4_adding_non-SPARC_tools_and_models_to_the_knowledge_graph.ipynb">
     4
     </a></td>
     <td> Adding non-SPARC tools and models to the knowledge graph. This includes adding an existing model from the Biomodels repository, and a tool from the WorkflowHub repository. </td>
   </tr> 
   <tr>
-    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_5/XXX.ipynb">
+    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/tutorials/tutorial_5_assemble_workflow/tutorial_5_assemble_workflow.ipynb">
     5
     </a></td>
     <td> Assembling a workflow automatically using sparc-assemble and natural language processing </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_6/XXX.ipynb">
+    <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/main/tutorials/tutorial_6_run_workflow/tutorial_6_run_workflow.ipynb">
     6
     </a></td>
     <td> Running assembled workflows </td>
