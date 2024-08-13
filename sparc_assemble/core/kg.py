@@ -71,6 +71,8 @@ class KG:
 
             individuals_list.append(tmp_individual)
 
+        return individuals_list
+
     def add_tools(self, tool_library=None):
 
         # Retrieve json files with tool description
