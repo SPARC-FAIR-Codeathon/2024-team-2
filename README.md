@@ -82,8 +82,7 @@ Our vision is to:
 - **store assembled workfow descriptions in a FAIR manner** such that they can potentially be e.g. [contributed to the SPARC Portal](https://docs.sparc.science/docs/submitting-a-dataset-to-sparc) 
 
 Providing these capabilites would: 
-- significantly improve search functionality, especially if it is integrated with shared infrastructure such as the SPARC portal. This would allow users to:
-  - search for the quantities that they are interested in by leveraging knowledge of existing tools and models that may already provide those quantities.
+- significantly improve resource search functionality, especially if it is integrated with shared infrastructure such as the SPARC portal. This would allow users to find existing tools and models that may already enable evalaution of some or all of the quantities that they are interested.
 - maximise finability, reusabilty, and therefore, the impact of existing SPARC resoures (providing an pathway for other communities that are building tools and models to make use of SPARC data)
 - support reuse of assembled workflows by the community for generating scientific advances.
 - help the community identify gaps in our knowledge and capabilites to support and help prioritise future research developments
@@ -107,14 +106,13 @@ The following features are currently supported:
 - Reuses existing SPARC resources and tools including sparc-me, sparc-flow, and the sparc-python-client
   
 ## Designed to enable FAIRness
-We have assessed the FAIRness of our sparc-assemble tool against the FAIR Principles established for research software. The details are available in the following [document](INSERT GOOGLE DOC).
+We have endevoured enusre FAIRness of sparc-assemble and the tools that it uses.  against the FAIR Principles established for research software. The details of this assemsement  in the following [document](INSERT GOOGLE DOC).
 
 ## Future developments
 - Workflow and tool registry in SPARC portal
 - standardise the description of intputs and outputs of these models and tools
 - Integrate our knowledge graph with other SPARC knowledgebases (
--  Leverage anatomical and funcational connetivity to assemble new workflows
-- share
+- Leverage anatomical and funcational connetivity to assemble new workflows
 - Expand tool descriptions that can be access e.g. Workflow Description Language, Nextflow, Snakemake etc 
 - Link with Language Models to support
   
@@ -239,6 +237,7 @@ Fork this repository and submit a pull request to contribute. Before doing so, p
 
 ## Cite us
 If you use sparc-assemble to make new discoveries or use the source code, please cite us as follows:
+Please note that the Zenodo link is a placeholder and can only be added once this repository is made public (after the codathon is completed).
 ```
 Mathilde Verlyck, Jiali Xu, Max Dang Vu, Thiranja Prasad Babarenda Gamage, Chinchien Lin (2024). sparc-assemble: v1.0.0 - A Python tool to find and automatically assemble tools and workflows to process SPARC datasets in accordance with FAIR principles. Zenodo. https://doi.org/XXXX/zenodo.XXXX.
 ```
@@ -254,4 +253,9 @@ sparc-assemble is fully open source and distributed under the very permissive Ap
 * [Chinchien Lin](https://github.com/LIN810116) (Lead, SysAdmin)
 
 ## Acknowledgements
-- We would like to thank the organizers of the 2024 SPARC Codeathon for their guidance and support during this Codeathon.
+We would like to thank the organizers of the 2024 SPARC Codeathon for their guidance and support during this Codeathon.
+
+This Codeathon entry was built upon an existing tool (- this is currently a private repository - access can be)
+The codebase was refactored and integrated into 
+
+
