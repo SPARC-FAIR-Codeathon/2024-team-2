@@ -150,11 +150,11 @@ class Assembler():
         options = list(options_dict.keys())
 
         display_options(request, options, options_dict)
-        choice_method, choice_input = choose_options(options, options_dict)
-        self._store_workflow_choice(choice_method, choice_input, options_dict, options)
-
-        # Save workflow and inputs values respectively in Workflows (.cwl file) and Jobs (.yml file) folders
         if path_to_cwl_folder:
+            choice_method, choice_input = choose_options(options, options_dict)
+            self._store_workflow_choice(choice_method, choice_input, options_dict, options)
+
+            # Save workflow and inputs values respectively in Workflows (.cwl file) and Jobs (.yml file) folders
             wf_inputs, wf_name = save_workflow(ontology, self.workflow, path_to_cwl_folder)
 
 
