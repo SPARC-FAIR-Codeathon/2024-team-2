@@ -106,7 +106,7 @@ The following features are currently supported:
 - Reuses existing SPARC resources and tools including [sparc-me](https://github.com/SPARC-FAIR-Codeathon/sparc-me), [sparc-flow](https://github.com/SPARC-FAIR-Codeathon/sparc-flow), and the sparc-python-client.
   
 ## Designed to enable FAIRness
-We have assessed the FAIRness of our sparc-assemble against the FAIR Principles established for research software. The details of this assemsement is available in the following [document](INSERT GOOGLE DOC).
+We have assessed the FAIRness of our sparc-assemble against the FAIR Principles established for research software. The details of this assemsement is available in the codeathon google drive for team 2.
 
 Additionally, sparc-assemble has adopted exsiting dataset, knoweledge graph and workflow standards including:  
 - The Common Workflow Language (CWL) - is an open standard and specification used in the field of bioinformatics and scientific computing to describe and execute tools and workflows. CWL provides a way to define and share complex computational tasks and data processing pipelines in a portable and platform-independent manner. It uses a JSON-based format to describe input data, processing steps, and output data, allowing researchers to collaborate and share reproducible analyses across different computing environments. CWL aims to enhance the ease of defining, sharing, and executing computational workflows, particularly in the context of data-intensive scientific research.
@@ -119,6 +119,7 @@ Additionally, sparc-assemble has adopted exsiting dataset, knoweledge graph and 
 - Expand tool descriptions that can be accessed e.g. Workflow Description Language, Nextflow, Snakemake etc 
 - Link with Large Language Models to support more complex queries, for example to help visualise quantities of interest.
 - Show how the assembled workflows can be run with [sparc-flow](https://github.com/SPARC-FAIR-Codeathon/sparc-flow) directly from the commandline or through existing cloud computing platforms from [Dockstore.org](https://dockstore.org) (currently supports running on [AnVIL](https://anvilproject.org), [Cavatica](https://www.cavatica.org), [CGC](https://www.cancergenomicscloud.org), [DNAnexus](https://www.dnanexus.com), [Galaxy](https://usegalaxy.org), [Nextflow Tower](https://seqera.io/tower), and [Terra].
+- Provide API documentation.
   
 ## Setting up sparc-assemble
 
@@ -127,7 +128,7 @@ Additionally, sparc-assemble has adopted exsiting dataset, knoweledge graph and 
 - Python. Tested on:
    - 3.10
 - Operating system. Tested on:
-  - Ubuntu 18
+  - Ubuntu 24.04
    
 ### PyPI
 
@@ -187,37 +188,37 @@ Guided Jupyter Notebook tutorials have been developed describing how to use spar
     <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_1/XXX.ipynb">
     1
     </a></td>
-    <td> INSERT </td>
+    <td> Annotation of computational models and tools from existing SPARC datasets. </td>
   </tr>
   <tr>
     <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_2/XXX.ipynb">
     2
     </a></td>
-    <td> Use sparc-assemble to ... </td>
+    <td> Building a knowledge graph for automated workflow assembly. </td>
   </tr>
   <tr>
     <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_3/XXX.ipynb">
     3
     </a></td>
-    <td> Use sparc-assemble to run ...</td>
+    <td> Adding tools created from existing SPARC datasets to the knowledge graph. </td>
   </tr>
   <tr>
     <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_4/XXX.ipynb">
     4
     </a></td>
-    <td> Use sparc-assemble to run ...</td>
+    <td> Adding non-SPARC tools and models to the knowledge graph. This includes adding an existing model from the Biomodels repository, and a tool from the WorkflowHub repository. </td>
   </tr> 
   <tr>
     <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_5/XXX.ipynb">
     5
     </a></td>
-    <td> Use sparc-assemble to run ...</td>
+    <td> Assembling a workflow automatically using sparc-assemble and natural language processing </td>
   </tr>
   <tr>
     <td><a href="https://github.com/SPARC-FAIR-Codeathon/2024-team-2/blob/master/tutorials/tutorial_6/XXX.ipynb">
     6
     </a></td>
-    <td> Use sparc-assemble to run ...</td>
+    <td> Running assembled workflows </td>
   </tr>   
 </tbody>
 </table>
@@ -259,7 +260,8 @@ sparc-assemble is fully open source and distributed under the very permissive Ap
 ## Acknowledgements
 We would like to thank the organizers of the 2024 SPARC Codeathon for their guidance and support during this Codeathon.
 
-This Codeathon entry was built upon an existing tool (- this is currently a private repository - access can be)
-The codebase was refactored and integrated into 
+This Codeathon entry was built upon an existing tool that provided the basic functionality of adding a tool to a knowledge graph (which used the EDAM ontology) and automated workflow assembly. Please note that this repository is currently private. Please provide the github IDs of the judges and access will be provided.
+
+No work was done on this codeathon project prior to the start of the codeathon. All additional functionality described in the "our solution" section above was implemented during the codeathon including refactoring and incorporating the core functionality into a library and API within sparc-assemble, extending it to cater for models, natural language processing, all tutorial content etc, as evidenced by our commit history.
 
 
