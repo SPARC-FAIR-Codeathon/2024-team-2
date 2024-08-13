@@ -15,7 +15,7 @@ class Assembler():
         self.workflow_options_dict = None
         self.workflow = None
 
-    def run(self, path_to_cwl_folder: str):
+    def run(self, path_to_cwl_folder=None):
         """
         Main function of the program. Parse arguments, load ontology, display options to the user, prompt user for choice in
         a GUI or terminal. Run the chosen workflow.
@@ -154,7 +154,8 @@ class Assembler():
         self._store_workflow_choice(choice_method, choice_input, options_dict, options)
 
         # Save workflow and inputs values respectively in Workflows (.cwl file) and Jobs (.yml file) folders
-        wf_inputs, wf_name = save_workflow(ontology, self.workflow, path_to_cwl_folder)
+        if path_to_cwl_folder:
+            wf_inputs, wf_name = save_workflow(ontology, self.workflow, path_to_cwl_folder)
 
 
     def _store_workflow_choice(self, choice_method: int, choice_input: int,
