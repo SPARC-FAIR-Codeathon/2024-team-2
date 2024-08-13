@@ -25,9 +25,39 @@ if __name__ == '__main__':
     # Retrieve the name of the model
     model_name = model.model.name
     # Extract all species (inputs) from the model and store them in a list
-    inputs = list(model.model.species.all_elements)
+    species = model.model.species.all_elements
     # Extract all reactions (outputs) from the model and store them in a list
-    outputs = list(model.model.reactions.all_elements)
+    reactions = model.model.reactions.all_elements
+
+    species_dict = {}
+    inputs = []
+    # Iterate over the species objects
+    for specie in species:
+        # Create a string representation for the key using the species ID and name
+        key = f'Species {specie.id} "{specie.name}"'
+
+        # Assign a nested dictionary as the value with the desired attributes
+        species_dict = {
+            key:{
+            "type": specie.species_type,
+            }
+        }
+        inputs.append(species_dict)
+
+    reactions_dict = {}
+    outputs = []
+    # Iterate over the reactions objects
+    for reaction in reactions:
+        # Create a string representation for the key using the species ID and name
+        key = f'Reactions {reaction.id} "{reaction.name}"'
+
+        # Assign a nested dictionary as the value with the desired attributes
+        reactions_dict = {
+            key:{
+            "type": "",
+            }
+        }
+        outputs.append(reactions_dict)
 
     # initialising KG from default ontology "EDAM"
     kg = KG()

@@ -123,13 +123,9 @@ class KG:
         individual_names = [str(indiv_onto).removeprefix(self._ontology_file[:-3]) for indiv_onto in
                             individuals]
 
-        for key in inputs:
-            # Create list of input individuals
-            input_individuals = self._populate_ontology(self._ontology, individual_names, individuals, key)
+        input_individuals = self._populate_ontology(self._ontology, individual_names, individuals, inputs)
 
-        for key in outputs:
-            # Create list of input individuals
-            output_individuals = self._populate_ontology(self._ontology, individual_names, individuals, key)
+        output_individuals = self._populate_ontology(self._ontology, individual_names, individuals, outputs)
 
 
         method = self._ontology.operation_0004(model_name)
