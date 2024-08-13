@@ -156,12 +156,12 @@ class KG:
             for key in keys:
                 if key == 'input':
                     # Create list of input individuals
-                    input_individuals = self._populate_ontology(self._ontology, individual_names, individuals,
+                    input_individuals = self._populate_ontology_by_model(self._ontology, individual_names, individuals,
                                                                 data[key])
 
                 elif key == 'output':
                     # Create list of output individuals
-                    output_individuals = self._populate_ontology(self._ontology, individual_names, individuals,
+                    output_individuals = self._populate_ontology_by_model(self._ontology, individual_names, individuals,
                                                                  data[key].get("data"))
 
                 elif key == 'simulation':
