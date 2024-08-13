@@ -1,0 +1,24 @@
+{
+  "Operation": "SDS_282",
+  "comment": "From RNA sequences to BAM",
+  "Input": [
+    {"RNA sequences": {
+      "type": "file"
+    }},
+    {"Metabolomics Data": {
+      "type": "file"
+    }},
+    {"Genotyping Data": {
+      "type": "file"
+    }},
+    {"Microbiome Data": {
+      "type": "file"
+    }}
+  ],
+  "Output": [{
+    "BAM": {
+      "type": "file"
+    }
+  }],
+  "cwl": ""
+}
