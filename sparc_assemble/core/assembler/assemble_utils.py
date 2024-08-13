@@ -148,14 +148,14 @@ def display_options(request: str, options: list[str], options_dict: dict[str, di
 
 def choose_options(options: list[str], dict_methods: dict[str, dict[str, list[list[str]]]]) -> tuple[int, int]:
     """
-    Prompt user for method and input combination choice.
+    Prompt user for method and workflow choice.
     Args:
         options: list of methods that can compute request
         dict_methods: dict of methods that can compute request with their
         corresponding workflow options
     Returns:
         choice_method (int): index of the chosen method
-        choice_input (int): index of the chosen input combination
+        choice_input (int): index of the chosen workflow
     """
     # Get user method choice
     while True:
@@ -168,10 +168,10 @@ def choose_options(options: list[str], dict_methods: dict[str, dict[str, list[li
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-    # Get user input combination choice
+    # Get user workflow choice
     while True:
         try:
-            choice_input = int(input("Enter the input combination of your choice (number): "))
+            choice_input = int(input("Enter the workflow of your choice (number): "))
             if 1 <= choice_input <= len(list(dict_methods[options[choice_method - 1]].keys())):
                 break
             else:
@@ -179,34 +179,6 @@ def choose_options(options: list[str], dict_methods: dict[str, dict[str, list[li
         except ValueError:
             print("Invalid input. Please enter a number.")
     return choice_method, choice_input
-
-
-def provide_and_save_inputs(inputs: dict[str, str], wf_name: str) -> None:
-    """
-    Prompt user for inputs value and store them in a dict.
-    Need to be added: type verification (once added to knowledge graph)
-    Args:
-        inputs (dict[str, str]): dict of inputs (key) and their type (value)
-        wf_name (str): workflow name
-    Returns:
-        None: store inputs in a yaml file
-    """
-    inputs_dict = {}
-    # Loop over input, get value and store it in inputs_dict
-    for input_name, input_type in inputs.items():
-        input_value = input(f'Please provide input value for {input_name}:')
-        # Add input and their value to inputs_dict
-        if input_type in ['Directory', 'File']:  # handle input type Directory and File
-            sub_dict = {'class': input_type, 'path': input_value}
-            inputs_dict[input_name] = sub_dict
-        else:
-            inputs_dict[input_name] = input_value
-    # Store inputs as a yaml file in Jobs folder
-    if not os.path.exists('resources/jobs'):  # TODO: don't hard code
-        os.makedirs('resources/jobs')
-    with open(f'resources/jobs/{wf_name}.yml', 'w') as yaml_file:
-        yaml = YAML(typ='unsafe', pure=True)
-        yaml.dump(inputs_dict, yaml_file, default_flow_style=False)
 
 
 def post_process_sparql_results(sparql_results: list[list[str]]) -> list[list[str, list[str], list[str]]]:
@@ -288,7 +260,7 @@ def check_uniqueness_sublist(list_combination: list[str]) -> list[str]:
         return unique_list
 
 
-def find_steps_cwl(ontology: Ontology, workflow: list[list[str]]) -> list[str]:
+def find_steps_cwl(ontology: Ontology, workflow: list[list[str]], path_to_cwl_folder: str) -> list[str]:
     """
     Query ontology to retrieve cwl file for the corresponding method through 'isDefinedBy' property.
     Args:
@@ -301,8 +273,7 @@ def find_steps_cwl(ontology: Ontology, workflow: list[list[str]]) -> list[str]:
     # Loop over the steps of the workflow
     for step in workflow:
         method_cwl = find_method_cwl(ontology, step[1])  # step[1] is the method name
-        method_cwl_path = Path(os.path.join('./Tools', method_cwl[0][
-            0]))  # TODO: path hard coded for now but the tools database location should be set when initializing
+        method_cwl_path = Path(os.path.join(path_to_cwl_folder, method_cwl[0][0]))
         workflow_steps.append(method_cwl_path)
     return workflow_steps
 

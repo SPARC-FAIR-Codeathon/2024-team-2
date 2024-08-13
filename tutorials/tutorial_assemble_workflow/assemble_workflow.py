@@ -1,6 +1,6 @@
 import argparse
 
-from sparc_assemble.core.assembler.assembler import Assembler
+from sparc_assemble import Assembler
 
 
 if __name__ == '__main__':

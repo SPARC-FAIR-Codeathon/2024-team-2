@@ -1,0 +1,24 @@
+{
+  "Operation": "ROCrate_525",
+  "comment": "From BAM to outNpz",
+  "Input": [
+    {"BAM": {
+      "type": "file"
+    }},
+    {"Gene annotation": {
+      "type": "file"
+    }},
+    {"Splice junction": {
+      "type": "file"
+    }},
+    {"Repeat region": {
+      "type": "file"
+    }}
+  ],
+  "Output": [{
+    "outNpz": {
+      "type": "file"
+    }
+  }],
+  "cwl": "..\\..\\resources\\tools\\ChIP-Seq_workflow.cwl"
+}

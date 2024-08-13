@@ -193,7 +193,7 @@ def add_workflow_outputs(wf: WorkflowGenerator, outputs_references: dict[str, li
     wf.add_outputs(**workflow_outputs)
 
 
-def save_workflow(ontology: Ontology, workflow: list[list[str]]) -> tuple[dict, str]:
+def save_workflow(ontology: Ontology, workflow: list[list[str]], path_to_cwl_folder) -> tuple[dict, str]:
     """
     Create and save a CWL workflow from a list of steps (=workflow).
     Args:
@@ -203,7 +203,7 @@ def save_workflow(ontology: Ontology, workflow: list[list[str]]) -> tuple[dict, 
         final_inputs (dict): dict of inputs for the workflow. Inputs are in the form of 'input_name: input_type'.
         workflow_name (str): name of the workflow
     """
-    workflow_steps = find_steps_cwl(ontology, workflow)
+    workflow_steps = find_steps_cwl(ontology, workflow, path_to_cwl_folder)
     # Create workflow object
     with WorkflowGenerator() as wf:
         # Load cwl file and store inputs and outputs in dicts with key = step name
